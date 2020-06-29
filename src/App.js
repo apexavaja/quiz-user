@@ -1,26 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import HomeWithOutLogin from './components/homeWithOutLogin';
+import HomeWithLogin from './components/homeWithLogin';
+class App extends React.Component {
+  render() {
+    const isLogin = localStorage.getItem("userLogin") === null ? false : true;
+    if (isLogin === false) {
+      return (
+        <HomeWithOutLogin />
+      )
+    } else {
+      return (
+        <HomeWithLogin />
+      )
+    }
+  }
 }
 
 export default App;
