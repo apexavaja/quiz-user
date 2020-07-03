@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import './homeWithLogin.css'
 // import { connect } from "react-redux";
 // import { bindActionCreators } from "redux";
@@ -12,7 +11,8 @@ export default class HomeWithLogin extends Component {
   render() {
     return (
       <div>
-        
+        Welcome to dashboard!!
+        <button onClick={localStorage.clear()}>Logout</button>
       </div>
     );
   }

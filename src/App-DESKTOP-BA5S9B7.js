@@ -9,15 +9,13 @@ import HomeWithLogin from './components/homeWithLogin/homeWithLogin';
 class App extends React.Component {
   render() {
     const isLogin = localStorage.getItem("token") === null ? false : true;
+    console.log(isLogin);
     return (
       <div className="App">
         <Router>
-          <Link to="/"><button>Home</button></Link>
-          <Link to="/login"><button>Login</button></Link>
-          <Link to="/register"><button>Register</button></Link>
           <Switch>
-            {!isLogin && <Route path="/" exact component={HomeWithLogin} />}
-            {isLogin && <Route path="/" exact component={HomeWithOutLogin} />}
+            {isLogin && <Route path="/" exact component={HomeWithLogin} />}
+            {!isLogin && <Route path="/" exact component={HomeWithOutLogin} />}
             <Route path="/login" exact component={Login} />
             <Route path="/register" exact component={Register} />
           </Switch>
